@@ -1,4 +1,22 @@
 // ── Portfolio data & command definitions ──
+// ── Boot icon loading animation ──
+function animateBootIconFill() {
+  const stop = document.getElementById('bootFillStop');
+  if (!stop) return;
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.floor(Math.random() * 15) + 8;
+    if (progress > 100) progress = 100;
+    stop.setAttribute('offset', `${progress}%`);
+    if (progress >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        const welcome = document.getElementById('welcome');
+        if (welcome) welcome.classList.add('out');
+      }, 500);
+    }
+  }, 150);
+}
 
 // ── Skill icons (Simple Icons via shields.io) ──
 function getSkillBadge(name) {

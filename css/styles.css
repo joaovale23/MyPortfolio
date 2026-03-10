@@ -276,12 +276,29 @@ body {
 #welcome.out { opacity: 0; pointer-events: none; transform: scale(1.03); }
 
 .wl-logo {
-  width: 4rem; height: 4rem; border-radius: 1rem;
-  background: linear-gradient(135deg, var(--green), var(--blue), var(--amber));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.714rem;
-  box-shadow: 0 8px 32px rgba(184,160,204,0.4), 0 0 60px rgba(168,196,160,0.15);
-  animation: wl-float 3s ease-in-out infinite;
+  }
+
+  .wl-logo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, var(--green), var(--blue), var(--amber));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.714rem;
+    box-shadow: 0 8px 32px rgba(184,160,204,0.4), 0 0 60px rgba(168,196,160,0.15);
+    animation: wl-float 3s ease-in-out infinite;
+  }
+
+  .wl-logo-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1.3rem;
+  }
 }
 @keyframes wl-float {
   0%,100% { transform: translateY(0); }
