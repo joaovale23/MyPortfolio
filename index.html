@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>port.OS — portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="cur"></div>
+
+  <!-- WELCOME / BOOT SCREEN -->
+  <div id="welcome">
+    <div class="wl-logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+    <div class="wl-os">port.OS</div>
+    <div class="wl-sub">Portfolio Operating System</div>
+    <div class="wl-bar-wrap"><div class="wl-bar"></div></div>
+    <div class="wl-hint">iniciando sessão...</div>
+  </div>
+
+  <!-- WALLPAPER -->
+  <div id="wallpaper">
+    <div id="wp-brand">
+      <div class="wp-title">Port.OS</div>
+      <div class="wp-subtitle">João Vitor Vale</div>
+    </div>
+  </div>
+
+  <!-- DESKTOP -->
+  <div id="desktop">
+    <div id="desk-clock">
+      <div class="dc-time" id="dc-time">00:00</div>
+      <div class="dc-date" id="dc-date">—</div>
+    </div>
+    <div id="desk-icons"></div>
+  </div>
+
+  <!-- Selection rectangle (OS-style drag select) -->
+  <div id="selection-rect"></div>
+
+  <!-- TERMINAL WINDOW -->
+  <div id="app" class="os-window focused">
+
+    <!-- TOPBAR (titlebar) -->
+    <div id="topbar">
+      <div class="tb-left">
+        <div class="tb-dots">
+          <div class="dot r" onclick="closeTerminal()"></div>
+          <div class="dot a" onclick="minimizeTerminal()"></div>
+          <div class="dot g" onclick="maximizeTerminal()"></div>
+        </div>
+        <span class="tb-title">~/portfolio — terminal</span>
+      </div>
+      <div class="tb-right">
+        <span>utf-8</span>
+        <span>bash</span>
+        <span id="tb-time">--:--:--</span>
+      </div>
+    </div>
+
+    <!-- BODY (terminal only, no nav) -->
+    <div id="body">
+      <div id="term">
+        <div id="out"></div>
+      </div>
+    </div>
+
+    <!-- STATUSBAR / INPUT -->
+    <div id="statusbar">
+      <div class="sb-mode">NORMAL</div>
+      <div class="sb-section">
+        <span style="color:var(--green)">●</span>
+        <span id="cur-section">terminal</span>
+      </div>
+      <div id="inputwrap">
+        <div class="prompt-inline">
+          <span class="p-user">guest</span>
+          <span class="p-at">@</span>
+          <span class="p-host">port.os</span>
+          <span class="p-sep">:</span>
+          <span class="p-path">~</span>
+          <span class="p-sym">$&nbsp;</span>
+        </div>
+        <input type="text" id="inp" placeholder="" autocomplete="off" spellcheck="false">
+        <span id="inp-display"><span class="inp-text"></span><span class="caret-blink"></span><span class="inp-placeholder"></span></span>
+      </div>
+      <div class="sb-section" style="border-right:none;border-left:1px solid var(--border)">
+        tab: autocomplete &nbsp;·&nbsp; ↑↓: history
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TASKBAR -->
+  <div id="taskbar">
+    <div class="tbar-app" id="tbar-terminal" onclick="toggleTerminal()">
+      <span class="tbar-emoji"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
+      <span class="tbar-name">Terminal</span>
+      <span class="tbar-dot"></span>
+    </div>
+    <div id="tbar-apps"></div>
+    <div class="tbar-spacer"></div>
+    <div class="tbar-toggles">
+      <button class="tbar-btn" onclick="toggleTheme(); updateThemeIcon()" title="Toggle theme">
+        <span id="theme-icon">☾</span>
+      </button>
+      <button class="tbar-btn" onclick="toggleLang()" title="Toggle language">
+        <span id="lang-btn">PT</span>
+      </button>
+    </div>
+    <div class="tbar-sep"></div>
+    <span id="tbar-clock">00:00</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/commands.js"></script>
+  <script src="js/terminal.js"></script>
+
+</body>
+</html>
