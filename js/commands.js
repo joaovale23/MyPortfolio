@@ -59,7 +59,7 @@ function getProjectsData() {
       status: 'done',
       statusText: 'stable',
       image: 'img/projects/ans.webp',
-      deploy: 'https://teste-intuitive-care-deploy.vercel.app/',
+      deploy: 'https://etl-ans.vercel.app/',
       repo: 'https://github.com/joaovale23/teste-intuitive-care',
     },
     {
